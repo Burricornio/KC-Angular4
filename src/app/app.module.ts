@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
  | Importa FromNowPipe para poder usarlo en este documento. |
  |----------------------------------------------------------*/
 
-import { AppComponent } from './app.component';
+ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AutoGrowDirective } from './auto-grow.directive';
 import { CategoryBoxComponent } from './category-box/category-box.component';
