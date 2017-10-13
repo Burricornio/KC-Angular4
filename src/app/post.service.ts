@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -32,7 +32,15 @@ export class PostService {
     | Una pista más, por si acaso: HttpParams.                                 |
     |=========================================================================*/
 
-    return this._http.get<Post[]>(`${environment.backendUri}/posts`);
+    // Personalizamos los parámetros de la petición HTTP
+    const options = {
+      params: new HttpParams()
+      .set('_sort', 'publicationDate')
+      .set('_order', "DESC")
+    };
+
+    // Retornamos la ruta con los filtros que hemos creado
+    return this._http.get<Post[]>(`${environment.backendUri}/posts`, options);
   }
 
   getUserPosts(id: number): Observable<Post[]> {
