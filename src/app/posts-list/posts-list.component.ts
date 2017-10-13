@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
+// Importamos el modulo 'Router'
+import { Router} from '@angular/router';
+
 import { Post } from '../post';
 
 @Component({
@@ -8,6 +11,9 @@ import { Post } from '../post';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostsListComponent {
+
+  //Inyectamos como dependencia 'Router'
+  constructor(private _router: Router){};
 
   @Input() posts: Post[];
 
@@ -31,4 +37,9 @@ export class PostsListComponent {
   | identificador del post.                                                  |
   |=========================================================================*/
 
+  // Definimos la función manejadora
+  verVistaDetalle(post: Post): void {
+    console.log(post.id);
+      this._router.navigate([`/posts/${post.id}`]);
+  }
 }
