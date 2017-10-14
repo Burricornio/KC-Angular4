@@ -4,6 +4,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router} from '@angular/router';
 
 import { Post } from '../post';
+import { User } from './../user';
+
+
 
 @Component({
   selector: 'app-posts-list',
@@ -11,6 +14,8 @@ import { Post } from '../post';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostsListComponent {
+
+  post: Post;
 
   //Inyectamos como dependencia 'Router'
   constructor(private _router: Router){};
@@ -26,7 +31,10 @@ export class PostsListComponent {
   | Router de la app. La ruta a navegar es '/posts/users', pasando como      |
   | parámetro el identificador del autor.                                    |
   |=========================================================================*/
-
+  // Definimos la función manejadora
+  verArticulosAutor(post: Post): void {
+    this._router.navigate(['posts', 'users', post.author.id]);
+  }
   /*=========================================================================|
   | Green Path                                                               |
   |==========================================================================|
@@ -39,7 +47,6 @@ export class PostsListComponent {
 
   // Definimos la función manejadora
   verVistaDetalle(post: Post): void {
-    console.log(post.id);
-      this._router.navigate([`/posts/${post.id}`]);
+      this._router.navigate(['posts', `${post.id}`]);
   }
 }

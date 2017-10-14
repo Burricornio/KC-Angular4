@@ -13,5 +13,9 @@
 | en él para notificar los clics sobre los posts.                          |
 |========================================================================-->
 
-<!--Nos suscribimos al evento que hemos creadoen el hijo-->
-<app-post-preview *ngFor="let post of posts" [post]="post" (postPulsado)="verVistaDetalle($event)"></app-post-preview>
+<!--Nos suscribimos a los evento que hemos creado en los hijos-->
+<app-post-preview *ngFor="let post of posts" 
+[post]="post" 
+(postPulsado)="verVistaDetalle($event)"
+(autorPulsado)="verArticulosAutor($event)"
+></app-post-preview>

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { Post } from './post';
 import { PostService } from './post.service';
 
+
 @Injectable()
 export class PostsResolveService implements Resolve<Post[]> {
 
@@ -22,6 +23,10 @@ export class PostsResolveService implements Resolve<Post[]> {
     | qué encuentras.                                                          |
     |=========================================================================*/
 
+    if (route.params.userId) {
+      return this._postService.getUserPosts(route.params.userId);
+    }
+
     /*=========================================================================|
     | Yellow Path                                                              |
     |==========================================================================|
@@ -30,6 +35,7 @@ export class PostsResolveService implements Resolve<Post[]> {
     | del servicio PostService. Recuerda mirar en los parámetros de la ruta, a |
     | ver qué encuentras.                                                      |
     |=========================================================================*/
+
 
     return this._postService.getPosts();
   }
