@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Category } from '../category';
 
@@ -8,6 +8,7 @@ import { Category } from '../category';
   styleUrls: ['./category-box.component.css']
 })
 export class CategoryBoxComponent {
+
 
   @Input() categories: Category[];
 
@@ -19,6 +20,12 @@ export class CategoryBoxComponent {
   | componente padre la categoría sobre el cuál se ha hecho clic. Y puesto   |
   | que dicho clic se realiza en el template de este componente, necesitas,  |
   | además, un manejador para el mismo.                                      |
+
   |=========================================================================*/
 
+  @Output() categoriaPulsada = new EventEmitter<Category>();
+  
+  notificarCategoriaSeleccionada(categoria: Category): void {
+     this.categoriaPulsada.emit(categoria);
+  }
 }

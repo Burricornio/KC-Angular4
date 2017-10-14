@@ -111,7 +111,25 @@ export class PostService {
     | Una pista más, por si acaso: HttpParams.                                 |
     |=========================================================================*/
 
-     return this._http.get<Post[]>(`${environment.backendUri}/posts`);
+    let filtros = [];
+
+    const options = {
+      params: new HttpParams()
+      .set('_sort', 'publicationDate')
+      .set('_order', 'DESC')
+    };
+
+     return this._http.get<Post[]>(`${environment.backendUri}/posts`, options).map((posts: Post[]): Post[] => {
+       for (let i = 0; i < posts.length; i++) {
+         for (let j = 0; j< posts[i].categories.length; j++){
+           if (posts[i].categories[j].id == id) {
+             filtros.push(posts[i]);
+          }
+         }
+       }
+       return filtros;
+     });
+
   }
 
   getPostDetails(id: number): Observable<Post> {

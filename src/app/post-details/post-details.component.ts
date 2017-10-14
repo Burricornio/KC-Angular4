@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { NativeWindow } from '../window';
 import { Post } from '../post';
+import { Category } from '../category';
 
 @Component({
   templateUrl: './post-details.component.html',
@@ -52,5 +53,8 @@ export class PostDetailsComponent implements OnInit {
   | '/posts/categories', pasando como parámetro el identificador de la       |
   | categoría.                                                               |
   |=========================================================================*/
+  filtrarPorCategoriaSeleccionada(categoria: Category): void {
+    this._router.navigate(['posts', 'categories', categoria.id]);
+  }
 
 }
