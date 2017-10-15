@@ -280,6 +280,22 @@
         2
       ],
       "id": 10
+    },
+    {
+      "title": "¡Enhorabuena por el curso, Diego!",
+      "intro": "¡El curso ha estado genial! Muy bien explicado todo y se agradece el sentido del humor ;-). Ahora a trastear mucho con Angular para ir interiorizando conceptos porque tiene bastante chicha el asunto. Siento no haber podido seguir las clases en directo,  ¡Un abrazo y mil gracias! PD: Por el momento he realizado los paths obligatorios (¡estoy a tope de currelo!), pero prometo ponerme con el resto lo antes posible.",
+      "body": "",
+      "likes": [],
+      "categories": [],
+      "author": {
+        "id": 1,
+        "name": "KeepCoder",
+        "username": "keepcoder",
+        "email": "keepcoder@postium.com",
+        "avatar": "assets/images/keepcoder.jpg"
+      },
+      "publicationDate": 1507982806056,
+      "id": 11
     }
   ],
   "categories": [
